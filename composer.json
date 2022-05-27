@@ -7,7 +7,7 @@
     }
   },
   "require": {
-    "php": ">=7.1",
+    "php": ">=8.0",
     "ext-sockets": "*",
     "apache/thrift": "^0.15",
     "psr/log": "^1.0.2"
