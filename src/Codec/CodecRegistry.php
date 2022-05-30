@@ -7,12 +7,12 @@ class CodecRegistry implements \ArrayAccess
 {
     private $codecs = [];
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return array_key_exists($offset, $this->codecs);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         if (false === array_key_exists($offset, $this->codecs)) {
             return null;
@@ -21,20 +21,16 @@ class CodecRegistry implements \ArrayAccess
         return $this->codecs[$offset];
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->codecs[$offset] = $value;
-
-        return $this;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         if (false === array_key_exists($offset, $this->codecs)) {
-            return $this;
+            return;
         }
         unset($this->codecs[$offset]);
-
-        return $this;
     }
 }
